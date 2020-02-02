@@ -1,0 +1,39 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Tournee index{% endblock %}
+
+{% block body %}
+    <h1>Les tournées</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ville</th>
+                <th>Date</th>
+                <th>Lieu</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tournee in tournees %}
+            <tr>
+                <td>{{ tournee.ville }}</td>
+                <td>{{ tournee.date }}</td>
+                <td>{{ tournee.lieu }}</td>
+                <td>{{ tournee.image }}</td>
+                <td>
+                    <a href="{{ path('tournee_show', {'id': tournee.id}) }}">show</a>
+                    <a href="{{ path('tournee_edit', {'id': tournee.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tournee_new') }}" class="btn btn-primary">Ajouter une nouvelle date de tournée</a>
+{% endblock %}

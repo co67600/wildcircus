@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('admin') }}
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel=“stylesheet">
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    {% endblock %}
+</head>
+
+<body>
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<div id="main-wrapper" data-navbarbg="skin6" data-theme="light" data-layout="vertical" data-sidebartype="full" data-boxed-layout="full">
+    <aside class="left-sidebar" data-sidebarbg="skin5">
+        <div class="scroll-sidebar">
+            <div class="navbar-brand">
+                           <a class="navbar-brand js-scroll-trigger logo" href="{{ path('admin') }}">Wild Circus</a>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ path('artiste_index') }}" aria-expanded="false">
+                            <i class="mdi mdi-av-timer"></i>
+                            <span class="hide-menu">Les artistes</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ path('tournee_index') }}" aria-expanded="false">
+                            <i class="mdi mdi-av-timer"></i>
+                            <span class="hide-menu">La tournée</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ path('reservation_index') }}" aria-expanded="false">
+                            <i class="mdi mdi-av-timer"></i>
+                            <span class="hide-menu">Les réservations</span>
+                        </a>
+                    </li>
+
+
+
+
+                </ul>
+            </nav>
+        </div>
+    </aside>
+    <div class="page-wrapper">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title">Administration</h4>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+</div>
+{% block javascripts %}
+
+{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Artiste index{% endblock %}
+
+{% block body %}
+    <h1>Les Artistes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Imagefull</th>
+                <th>Texte</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artiste in artistes %}
+            <tr>
+
+                <td>{{ artiste.nom }}</td>
+                <td>{{ artiste.description }}</td>
+                <td>{{ artiste.image }}</td>
+                <td>{{ artiste.imagefull }}</td>
+                <td>{{ artiste.texte }}</td>
+                <td>
+                    <a href="{{ path('artiste_show', {'id': artiste.id}) }}">show</a>
+                    <a href="{{ path('artiste_edit', {'id': artiste.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('artiste_new') }}" class="btn btn-primary"> Ajouter un nouvel artiste</a>
+{% endblock %}

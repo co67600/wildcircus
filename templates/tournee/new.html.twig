@@ -1,0 +1,11 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Tournee{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une nouvelle date de tournée</h1>
+
+    {{ include('tournee/_form.html.twig') }}
+
+    <a href="{{ path('tournee_index') }}">Retour</a>
+{% endblock %}
